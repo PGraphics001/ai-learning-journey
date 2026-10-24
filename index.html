@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P AI Assistant</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#101827;color:white}
+header{background:#172554;padding:20px;text-align:center}
+header h2{margin:0;color:#60a5fa}
+main{max-width:600px;margin:25px auto;padding:15px}
+#chat{height:55vh;overflow:auto;background:#1e293b;padding:15px;border-radius:12px}
+.msg{padding:12px;margin:10px 0;border-radius:10px;white-space:pre-wrap}
+.bot{background:#334155}
+.user{background:#1d4ed8;text-align:right}
+form{display:flex;gap:8px;margin-top:15px}
+input{flex:1;min-width:0;padding:14px;border:0;border-radius:8px}
+button{padding:12px;border:0;border-radius:8px;background:#3b82f6;color:white}
+footer{text-align:center;color:#94a3b8;font-size:12px;margin-top:20px}
+</style>
+</head>
+<body>
+<header><h2>P AI Assistant</h2><p>Your ideas. Your intelligence. Your future.</p></header>
+<main>
+<div id="chat"><div class="msg bot">Hello! Welcome to P AI Assistant. Ask me something!</div></div>
+<form id="form">
+<input id="question" placeholder="Type your message..." required>
+<button type="submit">Send</button>
+</form>
+<footer>Created by P Graphics</footer>
+</main>
+<script>
+const form=document.getElementById('form');
+const input=document.getElementById('question');
+const chat=document.getElementById('chat');
+form.addEventListener('submit',function(e){
+e.preventDefault();
+const q=input.value.trim();
+if(!q)return;
+const user=document.createElement('div');
+user.className='msg user';
+user.textContent=q;
+chat.appendChild(user);
+const bot=document.createElement('div');
+bot.className='msg bot';
+bot.textContent='Your message has been received! My AI brain needs to be connected before I can generate intelligent answers.';
+chat.appendChild(bot);
+input.value='';
+chat.scrollTop=chat.scrollHeight;
+});
+</script>
+</body>
+</html>
